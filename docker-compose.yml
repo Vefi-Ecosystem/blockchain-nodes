@@ -17,6 +17,7 @@ services:
       - "8545:8545/tcp"
       - "8546:8546/tcp"
       - "30303:30303/udp"
+    restart: always
   smartchain-node:
     container_name: smartchain-node
     hostname: smartchain-node
@@ -34,6 +35,7 @@ services:
       - "7545:7545/tcp"
       - "7546:7546/tcp"
       - "30301:30301/udp"
+    restart: always
   proxy:
     container_name: proxy
     image: proxy-vef:${IMAGE_TAG}
