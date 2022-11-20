@@ -40,4 +40,5 @@ ENTRYPOINT geth --datadir ~/smartchain-node \
     --miner.threads 4 \
     --unlock ${ADDRESS} \
     --password ~/smartchain-node/.password \
-    --allow-insecure-unlock
+    --allow-insecure-unlock \
+    --rpc.allow-unprotected-txs
