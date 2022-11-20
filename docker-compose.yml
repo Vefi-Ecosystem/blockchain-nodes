@@ -1,0 +1,57 @@
+version: '3.3'
+services:
+  bitgert-node:
+    container_name: bitgert-node
+    hostname: bitgert-node
+    networks:
+      - bitgert
+    build:
+      context: ./bitgert
+      dockerfile: Dockerfile
+      args:
+        - ADDRESS=${ADDRESS}
+        - PASSWORD=${PASSWORD}
+        - PRIVATE_KEY=${PRIVATE_KEY}
+        - BOOTNODES=${BITGERT_BOOTNODES}
+    ports:
+      - "8545:8545/tcp"
+      - "8546:8546/tcp"
+      - "30303:30303/udp"
+  smartchain-node:
+    container_name: smartchain-node
+    hostname: smartchain-node
+    networks:
+      - smartchain
+    build: 
+      context: ./smartchain
+      dockerfile: Dockerfile
+      args:
+        - ADDRESS=${ADDRESS}
+        - PASSWORD=${PASSWORD}
+        - PRIVATE_KEY=${PRIVATE_KEY}
+        - BOOTNODES=${SMARTCHAIN_BOOTNODES}
+    ports:
+      - "7545:7545/tcp"
+      - "7546:7546/tcp"
+      - "30301:30301/udp"
+  proxy:
+    container_name: proxy
+    image: proxy-vef:${IMAGE_TAG}
+    hostname: localhost
+    networks:
+      - bitgert
+      - smartchain
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - 32000:80
+    depends_on:
+      - bitgert-node
+      - smartchain-node
+networks:
+  bitgert:
+    external: false
+  smartchain:
+    external: false
