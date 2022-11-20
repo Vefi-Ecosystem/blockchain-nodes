@@ -36,6 +36,16 @@ services:
       - "7546:7546/tcp"
       - "30301:30301/udp"
     restart: always
+  dashboard:
+    container_name: dashboard
+    hostname: dashboard
+    networks:
+      - dashboard
+    build:
+      context: ./dashboard
+      dockerfile: Dockerfile
+    ports:
+      - "22900:22900/tcp"
   proxy:
     container_name: proxy
     image: proxy-vef:${IMAGE_TAG}
@@ -43,6 +53,7 @@ services:
     networks:
       - bitgert
       - smartchain
+      - dashboard
     build:
       context: .
       dockerfile: Dockerfile
@@ -52,8 +63,11 @@ services:
     depends_on:
       - bitgert-node
       - smartchain-node
+      - dashboard
 networks:
   bitgert:
     external: false
   smartchain:
+    external: false
+  dashboard:
     external: false
