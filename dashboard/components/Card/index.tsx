@@ -87,8 +87,8 @@ export default function Card({ getHeight, chainId, chainName, currency, url }: I
         <div className="flex justify-between items-center gap-3 w-full">
           <span className="font-[700]">URL:</span>
           <div className="flex justify-center gap-1 items-center">
-            <span className="text-[16px] font-[500] break-all">{url}</span>
-            <CopyToClipboard text={url}>
+            <span className="text-[16px] font-[500] break-all">https://nodes.vefinetwork.org{url}</span>
+            <CopyToClipboard text={`https://nodes.vefinetwork.org${url}`}>
               <button className="border-0 bg-transparent focus:bg-[#000]/20 px-1 py-1">
                 <FiCopy />
               </button>
