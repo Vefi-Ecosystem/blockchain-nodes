@@ -44,7 +44,7 @@ export default function Card({ getHeight, chainId, chainName, currency, url }: I
         console.log(error);
       }
     })();
-  }, []);
+  }, [getHeight, url]);
 
   useInterval(() => {
     (async () => {
