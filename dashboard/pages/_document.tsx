@@ -29,6 +29,7 @@ export default class CustomDocument extends Document {
             name="keywords"
             content="dapps, vefi, dex, launchpad, multisig, staking pools, stake, bitgert, binance, brise, bsc, omax, gatechain, multichain, nodes"
           />
+          <title>Vefi Nodes</title>
         </Head>
         <body>
           <Main />
