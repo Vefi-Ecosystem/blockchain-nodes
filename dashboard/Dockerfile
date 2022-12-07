@@ -3,6 +3,7 @@ COPY components /components/
 COPY pages /pages/
 COPY public /public/
 COPY styles /styles/
+COPY theme /theme/
 COPY *.json /
 COPY *.js /
 COPY *.ts /
