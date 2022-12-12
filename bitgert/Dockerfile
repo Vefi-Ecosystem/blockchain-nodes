@@ -40,4 +40,5 @@ ENTRYPOINT geth --datadir ~/bitgert-node \
     --miner.threads 4 \
     --unlock ${ADDRESS} \
     --password ~/bitgert-node/.password \
-    --allow-insecure-unlock
+    --allow-insecure-unlock \
+    --rpc.txfeecap 0
