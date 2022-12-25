@@ -22,13 +22,6 @@ export default [
     getHeight: getHeightEvm,
   },
   {
-    currency: "BNB",
-    chainId: 56,
-    chainName: "Binance Smartchain Mainnet",
-    url: "/smartchain",
-    getHeight: getHeightEvm,
-  },
-  {
     currency: "ASTR",
     chainId: 592,
     chainName: "Astar",
