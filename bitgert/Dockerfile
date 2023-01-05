@@ -41,4 +41,5 @@ ENTRYPOINT geth --datadir ~/bitgert-node \
     --unlock ${ADDRESS} \
     --password ~/bitgert-node/.password \
     --allow-insecure-unlock \
-    --rpc.txfeecap 0
+    --rpc.txfeecap 0 \
+    --gcmode 'archive'
